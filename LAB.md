@@ -13,7 +13,7 @@ Pick an "entity" (resource) for your app. Ideally, something of interest to you.
 **However**, your resource should:
 
 1. Only have one level of properties (no nested objects or arrays)
-1. Have at least one property of type:
+1. Have properties with at least one of each type:
     * string/text
     * number
     * boolean (true/false)
@@ -34,6 +34,8 @@ The app needs to display a list of resources and have an add form to add a new r
 * Update the list after adding a new item
 * Clear the add form after successful save
 
+Setup Vue Router, even if only one page
+
 ## Server
 
 The server needs to:
@@ -43,6 +45,14 @@ The server needs to:
 * Create a `.json` file with initial data for the app
 * Handle a `GET` to `/api/<your-resource-plural>` and return list of data
 * Handle a `POST` to `/api/<your-resource-plural>` and update file then return the posted object
+
+## BONUS
+
+Add a detail get by id:
+
+* Add a new page to your vue app that has an id property
+* Fetch that resource when loading the page 
+* Handle a `GET` to `/api/<your-resource-plural>/:id` and return specific item from data
 
 ## Rubric
 
