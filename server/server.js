@@ -17,7 +17,15 @@ app.use(express.json());
 
 app.get('/api/campgrounds', (req, res) => {
   const campgrounds = readData();
-  res.json(campgrounds);
+  if(req.query.name) {
+    const filtered = campgrounds.filter(s => {
+      return s.name.toLowerCase().startsWith(req.query.name.toLowerCase());
+    });
+    res.json(filtered);
+  }
+  else {
+    res.json(campgrounds);
+  }
 });
 
 app.post('/api/campgrounds', (req, res) => {
