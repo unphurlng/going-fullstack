@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const shortid = require('shortid');
 const fs = require('fs');
 
 function readData() {
@@ -21,14 +22,13 @@ app.get('/api/campgrounds', (req, res) => {
 
 app.post('/api/campgrounds', (req, res) => {
 
-  console.log('POST campgrounds received', req.body);
-  // const campgrounds = readData();
+  const campgrounds = readData();
+  const campground = req.body;
+  campground.id = shortid.generate();
+  campgrounds.push(req.body);
+  saveData(campgrounds);
 
-  // campgrounds.push(campground);
-
-  // saveData(campgrounds);
-
-  res.json({});
+  res.json(campground);
 });
 
 const PORT = 3000;
