@@ -1,13 +1,17 @@
 const express = require('express');
 const app = express();
+const fs = require('fs');
+
+function readData() {
+  const data = fs.readFileSync('./data/campgrounds.json', 'utf8');
+  return JSON.parse(data);
+}
+
+// app.use(express.json());
 
 app.get('/api/campgrounds', (req, res) => {
-  console.log(req.url);
-
-  res.json([
-    { name: 'Trout Creek Campground' },
-    { name: 'House Rock Campground' }
-  ]);
+  const campgrounds = readData();
+  res.json(campgrounds);
 });
 
 
