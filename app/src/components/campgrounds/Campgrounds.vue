@@ -2,7 +2,7 @@
   <section class="campgrounds">
     <h2>Oregon Campgrounds</h2>
 
-    <AddCampground :onAdd="handleAdd"/>
+    <!-- <AddCampground :onAdd="handleAdd"/> -->
 
     <ul v-if="campgrounds">
       <li v-for="campground in campgrounds" :key="campground.id">

@@ -18,8 +18,9 @@ app.use(express.json());
 app.get('/api/campgrounds', (req, res) => {
   const campgrounds = readData();
   if(req.query.name) {
-    const filtered = campgrounds.filter(s => {
-      return s.name.toLowerCase().startsWith(req.query.name.toLowerCase());
+    const match = req.query.name.toLowerCase();
+    const filtered = campgrounds.filter(c => {
+      return c.name.toLowerCase().startsWith(match);
     });
     res.json(filtered);
   }
