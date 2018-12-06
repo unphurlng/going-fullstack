@@ -12,9 +12,9 @@ client.connect()
       campgrounds.map(campground => {
         return client.query(`
           INSERT INTO campgrounds (name, forest, season_dates)
-          VALUES ($1, $2, $3, $4);
+          VALUES ($1, $2, $3);
         `,
-        [campground.name, campground.forest, campground.season_dates]);
+        [campground.name, campground.forest, campground.seasonDates]);
       })
     );
   })

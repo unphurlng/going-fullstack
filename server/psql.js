@@ -1,4 +1,4 @@
-const fs = require('fs');
+// const fs = require('fs');
 const pg = require('pg');
 const Client = pg.Client;
 const databaseUrl = 'postgres://localhost:5432/banana';
@@ -11,7 +11,7 @@ client.query(`
   SELECT = FROM campgrounds;
 `)
   .then(results => {
-    console.log(results);
+    console.log(results.rows);
   //     fs.writeFileSync(
   //       'campground.json',
   //       JSON.stringify(results.rows, true, 2)

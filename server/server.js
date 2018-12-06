@@ -31,33 +31,40 @@ app.get('/api/campgrounds', (req, res) => {
       res.json(result.rows);
     });
 
-  // FROM DAY 1  
-  // const campgrounds = readData();
-  // if(req.query.name) {
-  //   const match = req.query.name.toLowerCase();
-  //   const filtered = campgrounds.filter(c => {
-  //     return c.name.toLowerCase().startsWith(match);
-  //   });
-  //   res.json(filtered);
-  // }
-  // else {
-  //   res.json(campgrounds);
-  // }
+  app.get('/api/campgrounds/:id', (req, res) => {
+    client.query(`
+      SELECT * FROM campgrounds WHERE id = $1;
+    `,
+    [req.params.id])
+      .then(result => {
+        res.json(result.rows[0]);
+      });
+  });
 });
 
 app.post('/api/campgrounds', (req, res) => {
+  const body = req.body;
 
-  // FROM DAY 1
-  // const campgrounds = readData();
-  // const campground = req.body;
-  // campground.id = shortid.generate();
-  // campgrounds.push(req.body);
-  // saveData(campgrounds);
-
-  res.json(campground);
+  client.query(`
+    INSERT INTO campgrounds (name, forest, season_dates)
+    VALUES($1, $2, $3)
+    RETURNING id, name, forest, season_dates as "seasonDates";
+  `,
+  [body.name, body.forest, body.seasonDates])
+    .then(result => {
+      res.json(result.rows[0]);
+    });
 });
 
+// FROM DAY 1
+// const campgrounds = readData();
+// const campground = req.body;
+// campground.id = shortid.generate();
+// campgrounds.push(req.body);
+// saveData(campgrounds);
+
 const PORT = 3000;
+
 app.listen(PORT, () => {
   console.log('server app started on port', PORT);
 });
