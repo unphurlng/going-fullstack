@@ -25,7 +25,7 @@ client.connect();
 
 app.get('/api/campgrounds', (req, res) => {
   client.query(`
-    SELECT id, name FROM campgrounds;
+    SELECT id, name, forest, season_dates FROM campgrounds;
   `)
     .then(result => {
       res.json(result.rows);
