@@ -1,6 +1,6 @@
 <template>
   <section class="campgrounds">
-    <h2>Oregon Campgrounds</h2>
+    <h2>Oregon Campgrounds Listing</h2>
     <AddCampground :onAdd="handleAdd" />
     <campgroundList :campgrounds="campgrounds" />
   </section>
