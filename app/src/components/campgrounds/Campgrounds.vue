@@ -2,7 +2,7 @@
   <section class="campgrounds">
     <h2>Oregon Campgrounds</h2>
 
-    <!-- <AddCampground :onAdd="handleAdd"/> -->
+    <AddCampground :onAdd="handleAdd"/>
 
     <ul v-if="campgrounds">
       <li v-for="campground in campgrounds" :key="campground.id">
@@ -14,7 +14,7 @@
 
 <script>
 import api from '../../services/api';
-// import AddCampground from './AddCampground';
+import AddCampground from './AddCampground';
 
 export default {
   data() {
@@ -23,6 +23,7 @@ export default {
       error: null
     };
   },
+  components
   created() {
     api.getCampgrounds()
       .then(campgrounds => {

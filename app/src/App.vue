@@ -20,9 +20,9 @@ export default {};
 
 <style scoped>
 header {
-  height: 75px;
-  background: rgb(144, 161, 127);
   display: flex;
+  height: 200px;
+  margin: 20px;
   align-items: center;
   justify-content: space-between;
 }

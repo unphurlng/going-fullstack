@@ -13,7 +13,10 @@ export default {
   data() {
     return {
       student: {
-        name: ''
+        name: '',
+        forest: '',
+        season: '',
+        sites: '',
       }
     };
   }
