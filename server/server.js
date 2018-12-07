@@ -3,8 +3,8 @@ const app = express();
 const morgan = require('morgan');
 const pg = require('pg');
 
-app.use(morgan('dev'));
 
+app.use(morgan('dev'));
 app.use(express.json());
 
 const Client = pg.Client;
@@ -17,7 +17,7 @@ app.get('/api/campgrounds', (req, res) => {
     SELECT id, name, forest, season, sites FROM campgrounds;
   `)
     .then(result => {
-      res.json(result.rows);
+      res.json(result.rows[0]);
     });
 
   app.get('/api/campgrounds/:id', (req, res) => {
