@@ -8,14 +8,19 @@
 
 <script>
 import api from '../../services/api';
-// import AddCampground from './AddCampground';
+import AddCampground from './AddCampground';
+import CampgroundList from './CampgroundList';
 
 export default {
   data() {
     return {
-      campgrounds: null,
-      error: null
+      // campgrounds: null,
+      // error: null
     };
+  },
+  components: {
+    AddCampground,
+    CampgroundList
   },
   created() {
     api.getCampgrounds()

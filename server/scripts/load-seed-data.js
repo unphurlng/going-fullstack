@@ -11,10 +11,10 @@ client.connect()
     return Promise.all(
       campgrounds.map(campground => {
         return client.query(`
-          INSERT INTO campgrounds (name, forest, season_dates)
-          VALUES ($1, $2, $3);
+          INSERT INTO campgrounds (name, forest, season, sites)
+          VALUES ($1, $2, $3, $4);
         `,
-        [campground.name, campground.forest, campground.seasonDates]);
+        [campground.name, campground.forest, campground.season]);
       })
     );
   })

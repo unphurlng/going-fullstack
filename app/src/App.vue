@@ -1,6 +1,16 @@
 <template>
   <div id="app">
     <Home/>
+    <header>
+      <nav>
+        <RouterLink to="/">Home</RouterLink><br>
+        <RouterLink to="/campgrounds">Campgrounds</RouterLink>
+      </nav>
+    </header>
+
+    <main>
+      <RouterView></RouterView>
+    </main>
   </div>
 </template>
 
@@ -21,6 +31,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

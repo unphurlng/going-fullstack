@@ -22,7 +22,7 @@
 
     <p>
       <label>Season Open:</label>
-      <input v-model="campground.seasonDates">
+      <input v-model="campground.season">
     </p>
 
     <p>
@@ -45,7 +45,7 @@ export default {
     return {
       name: '',
       forest: '',
-      seasonDates: '',
+      season: '',
       sites: 0,
     };
   },

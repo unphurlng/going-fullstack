@@ -17,7 +17,8 @@ client.connect()
         id SERIAL PRIMARY KEY,
         name VARCHAR(256) NOT NULL,
         forest VARCHAR(256),
-        season_dates VARCHAR(256)
+        season VARCHAR(256),
+        sites INTEGER
       );
     `);
   })

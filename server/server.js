@@ -5,17 +5,6 @@ const pg = require('pg');
 
 app.use(morgan('dev'));
 
-// FROM DAY 1
-// function readData() {
-//   const data = fs.readFileSync('./data/campgrounds.json', 'utf8');
-//   return JSON.parse(data);
-// }
-
-// function saveData(campgrounds) {
-//   const json = JSON.stringify(campgrounds, true, 2);
-//   fs.writeFileSync('./data/campgrounds.json', json);
-// }
-
 app.use(express.json());
 
 const Client = pg.Client;
@@ -25,7 +14,7 @@ client.connect();
 
 app.get('/api/campgrounds', (req, res) => {
   client.query(`
-    SELECT id, name, forest, season_dates FROM campgrounds;
+    SELECT id, name, forest, season, sites FROM campgrounds;
   `)
     .then(result => {
       res.json(result.rows);
@@ -46,22 +35,15 @@ app.post('/api/campgrounds', (req, res) => {
   const body = req.body;
 
   client.query(`
-    INSERT INTO campgrounds (name, forest, season_dates)
-    VALUES($1, $2, $3)
-    RETURNING id, name, forest, season_dates as "seasonDates";
+    INSERT INTO campgrounds (name, forest, season, sites)
+    VALUES($1, $2, $3, $4)
+    RETURNING id, name, forest, season, sites;
   `,
-  [body.name, body.forest, body.seasonDates])
+  [body.name, body.forest, body.season, body.sites])
     .then(result => {
       res.json(result.rows[0]);
     });
 });
-
-// FROM DAY 1
-// const campgrounds = readData();
-// const campground = req.body;
-// campground.id = shortid.generate();
-// campgrounds.push(req.body);
-// saveData(campgrounds);
 
 const PORT = 3000;
 
