@@ -23,7 +23,9 @@ export default {
       error: null
     };
   },
-  components
+  components: {
+    AddCampground
+  },
   created() {
     api.getCampgrounds()
       .then(campgrounds => {
@@ -32,6 +34,14 @@ export default {
       .catch(err => {
         this.error = err;
       });
+  },
+  methods: {
+    handleAdd(campground) {
+      return api.addCampground(campground)
+        .then(saved => {
+          this.students.push(saved);
+        });
+    }
   }
 };
 </script>

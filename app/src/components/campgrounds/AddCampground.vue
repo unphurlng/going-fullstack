@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="handleSubmit">
+  <form @submit.prevent="onAdd(campground)">
     <input v-model="campground.name" require>
     <button>Add</button>
   </form>
@@ -8,21 +8,31 @@
 <script>
 export default {
   props: {
-    onAdd: Function,
+    onAdd: Function
   },
   data() {
     return {
-      student: {
-        name: '',
-        forest: '',
-        season: '',
-        sites: '',
+      campground: {
+        name: ''
+        // forest: '',
+        // season: '',
+        // sites: '',
       }
     };
+  },
+  methods: {
+    handleSubmit() {
+      this.onAdd(this.campground)
+        .then(() => {
+          this.campground = { name: '' };
+        });
+    }
   }
 };
 </script>
 
 <style>
-
+button {
+  margin: 10px;
+}
 </style>
