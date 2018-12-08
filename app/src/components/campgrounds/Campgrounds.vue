@@ -39,7 +39,7 @@ export default {
     handleAdd(campground) {
       return api.addCampground(campground)
         .then(saved => {
-          this.students.push(saved);
+          this.campgrounds.push(saved);
         });
     }
   }

@@ -14,9 +14,9 @@ export default {
     return {
       campground: {
         name: ''
-        // forest: '',
-        // season: '',
-        // sites: '',
+        forest: '',
+        season: '',
+        sites: '',
       }
     };
   },
