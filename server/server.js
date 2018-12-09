@@ -1,36 +1,36 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
-const pg = require('pg');
+const client = require('./db-client');
 
 app.use(morgan('dev'));
 app.use(express.json());
 
 // Connect to pg
-const Client = pg.Client;
-const dbUrl = 'postgress://localhost:5432/banana';
-const client = new Client(dbUrl);
-client.connect();
+// const Client = pg.Client;
+// const dbUrl = 'postgress://localhost:5432/banana';
+// const client = new Client(dbUrl);
+// client.connect();
 // End connect to pg
 
 app.get('/api/campgrounds', (req, res) => {
   client.query(`
-    SELECT id, name
+    SELECT id, name, forest, sites, rvwaste
     FROM campgrounds;
   `)
     .then(result => {
       res.json(result.rows[0]);
     });
+});
 
-  app.get('/api/campgrounds/:id', (req, res) => {
-    client.query(`
-      SELECT * FROM campgrounds WHERE id = $1;
-    `,
-    [req.params.id])
-      .then(result => {
-        res.json(result.rows[0]);
-      });
-  });
+app.get('/api/campgrounds/:id', (req, res) => {
+  client.query(`
+    SELECT * FROM campgrounds WHERE id = $1;
+  `,
+  [req.params.id])
+    .then(result => {
+      res.json(result.rows[0]);
+    });
 });
 
 app.post('/api/campgrounds', (req, res) => {

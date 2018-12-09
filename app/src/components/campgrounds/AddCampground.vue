@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="onAdd(campground)">
+  <form @submit.prevent="handleSubmit">
     <p>
       <label>Name:</label>
         <input v-model="campground.name" required>
@@ -24,13 +24,10 @@
 
     <p>
       <label>RV Waste:</label>
-      <select v-if="forest" v-model="campground.rvwaste" required>
-        <option v-for="(display, key) in rvwaste"
-          :key="key"
-          :value="key"
-        >
-        {{display}}
-        </option>
+      <select v-model="campground.rvwaste">
+        <option value="">Select</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
       </select>
     </p>
 
@@ -41,19 +38,23 @@
 <script>
 import api from '../../services/api';
 
+function initCampground() {
+  return {
+    name: '',
+    forest: '',
+    sites: '',
+    rvwaste: ''
+  };
+}
+
 export default {
   props: {
-    onAdd: Function,
+    onAdd: Function
   },
   data() {
     return {
-      campground: {
-        name: '',
-        forest: '',
-        season: '',
-        sites: 0,
-        rvwaste: false
-      }
+      campground: initCampground(),
+      forest: null
     };
   },
   created() {
@@ -63,7 +64,7 @@ export default {
     handleSubmit() {
       this.onAdd(this.campground)
         .then(() => {
-          this.campground = { name: '' };
+          this.campground = initCampground;
         });
     }
   }

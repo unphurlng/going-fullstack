@@ -7,13 +7,10 @@
 </template>
 
 <script>
-// import Campground from './Campground';
-
 export default {
   props: {
     campgrounds: null
   },
-
 };
 </script>
 
