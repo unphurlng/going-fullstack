@@ -1,40 +1,42 @@
 <template>
   <form @submit.prevent="onAdd(campground)">
-    <input v-model="campground.name" require>
+    <p>
+      <label>Name:</label>
+        <input v-model="campground.name" required>
+    </p>
+
+    <p>
+      <label>Forest:</label>
+      <select v-if="forest" v-model="campground.forest" required>
+        <option v-for="(display, key) in forest"
+          :key="key"
+          :value="key"
+        >
+        {{display}}
+        </option>
+      </select>
+    </p>
+
+    <p>
+      <label>Number of Sites:</label>
+      <input v-model="campground.sites" type="number">
+    </p>
+
+    <p>
+      <label>RV Waste:</label>
+      <select v-if="forest" v-model="campground.rvwaste" required>
+        <option v-for="(display, key) in rvwaste"
+          :key="key"
+          :value="key"
+        >
+        {{display}}
+        </option>
+      </select>
+    </p>
+
     <button>Add</button>
   </form>
 </template>
-
-    // <p>
-    //   <label>Name:</label>
-    //   <input v-model="campground.name" require>
-    // </p>
-
-    // <p>
-    //   <label>Forest:</label>
-    //   <select v-if="forest"
-    //     v-model="campground.forest"
-    //     required
-    //   >
-    //     <option v-for="(display, key) in forest"
-    //       :key="key"
-    //       :value="key"
-    //     >
-    //       {{display}}
-    //     </option>
-    //   </select>
-    // </p>
-
-    // <p>
-    //   <label>Season Open:</label>
-    //   <input v-model="campground.season">
-    // </p>
-
-    // <p>
-    //   <label>Number of Sites:</label>
-    //   <input v-model="campground.sites" type="number">
-    // </p>
-
 
 <script>
 import api from '../../services/api';

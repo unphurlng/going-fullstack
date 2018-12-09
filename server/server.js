@@ -37,11 +37,11 @@ app.post('/api/campgrounds', (req, res) => {
   const body = req.body;
 
   client.query(`
-    INSERT INTO campgrounds (name, forest, season, sites, rvwaste)
-    VALUES($1, $2, $3, $4, $5)
-    RETURNING id, name, forest, season, sites, rvwaste;
+    INSERT INTO campgrounds (name, forest, sites, rvwaste)
+    VALUES($1, $2, $3, $4)
+    RETURNING id, name, forest, sites, rvwaste;
   `,
-  [body.name, body.forest, body.season, body.sites, body.rvwaste])
+  [body.name, body.forest, body.sites, body.rvwaste])
     .then(result => {
       res.json(result.rows[0]);
     });
