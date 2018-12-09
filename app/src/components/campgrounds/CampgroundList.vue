@@ -1,16 +1,19 @@
 <template>
   <ul v-if="campgrounds">
     <li v-for="campground in campgrounds" :key="campground.id">
-      {{campground.name}}
+      <RouterLink :to="`/campgrounds/${campground.id}`">{{campground.name}}</RouterLink>
     </li>
   </ul>
 </template>
 
 <script>
+// import Campground from './Campground';
+
 export default {
   props: {
     campgrounds: null
-  }
+  },
+
 };
 </script>
 

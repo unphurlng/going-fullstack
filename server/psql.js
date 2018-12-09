@@ -7,10 +7,9 @@ const client = new Client(databaseUrl);
 client.connect();
 
 client.query(`
-  SELECT = name, forest, season, sites FROM campgrounds;
+  SELECT = name, forest, season, sites, rvsites FROM campgrounds;
 `)
   .then(results => {
-    console.log(results.rows);
     fs.writeFileSync(
       'campground.json',
       JSON.stringify(results.rows, true, 2)

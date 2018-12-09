@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Home/>
     <header>
+      <img src="./assets/tent2.png">
       <nav>
         <RouterLink to="/">Home</RouterLink><br>
         <RouterLink to="/campgrounds">Campgrounds</RouterLink>
@@ -15,14 +15,7 @@
 </template>
 
 <script>
-import Home from './components/home/Home';
-
-export default {
-  components: {
-    Home
-  }
-};
-
+export default {};
 </script>
 
 <style>
@@ -30,6 +23,21 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 20px;
+}
+
+header img {
+  height: 150px;
+  width: auto;
+}
+
+nav a {
+  display: flex;
+  justify-content: space-between;
+  width: 125px;
+  text-decoration: none;
   color: #2c3e50;
+  border: 1px dashed rgb(41, 40, 40);
+  padding: 5px;
 }
 </style>
