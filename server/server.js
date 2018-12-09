@@ -15,15 +15,15 @@ app.use(express.json());
 // client.connect();
 // End connect to pg
 
-app.get('/api/campgrounds', (req, res) => {
-  client.query(`
-    SELECT id, name, forest, sites, rvwaste
-    FROM campgrounds;
-  `)
-    .then(result => {
-      res.json(result.rows[0]);
-    });
-});
+// app.get('/api/campgrounds', (req, res) => {
+//   client.query(`
+//     SELECT id, name, forest, sites, rvwaste
+//     FROM campgrounds;
+//   `)
+//     .then(result => {
+//       res.json(result.rows[0]);
+//     });
+// });
 
 // app.get('/api/campgrounds/:id', (req, res) => {
 //   client.query(`

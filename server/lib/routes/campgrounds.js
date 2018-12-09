@@ -1,7 +1,7 @@
 const express = require('express');
 const client = require('../../db-client');
 const Router = express.Router;
-const router = Router(); //eslint-disable-line new-cap
+const router = Router();
 
 router
   .get('/api/campgrounds', (req, res) => {
