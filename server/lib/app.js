@@ -7,6 +7,7 @@ const forests = require('./routes/forests');
 
 app.use(morgan('dev'));
 app.use(express.json());
+
 app.use('/api/forests', forests);
 app.use('/api/campgrounds', campgrounds);
 
