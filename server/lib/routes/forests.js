@@ -4,7 +4,7 @@ const router = Router();
 const client = require('../../db-client');
 
 router
-  .get('/api/campgrounds', (req, res) => {
+  .get('/', (req, res) => {
     client.query(`
       SELECT id, name, forest, sites, rvwaste
       FROM campgrounds;

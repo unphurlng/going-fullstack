@@ -4,7 +4,7 @@ const Router = express.Router;
 const router = Router();
 
 router
-  .get('/api/campgrounds', (req, res) => {
+  .get('/', (req, res) => {
     client.query(`
       SELECT id, name, forest, sites, rvwaste
       FROM campgrounds
@@ -15,7 +15,7 @@ router
       });
   })
 
-  .get('/api/campgrounds/:id', (req, res) => {
+  .get('/:id', (req, res) => {
     client.query(`
       SELECT * FROM campgrounds WHERE id = $1;
     `,
@@ -25,7 +25,7 @@ router
       });
   })
 
-  .post('/api/campgrounds', (req, res) => {
+  .post('/', (req, res) => {
     const body = req.body;
 
     client.query(`

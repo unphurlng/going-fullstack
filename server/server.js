@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const campgrounds = require('./lib/routes/campgrounds');
+const forests = require('./lib/routes/forests');
 const client = require('./db-client');
 
 app.use(morgan('dev'));
@@ -49,7 +50,8 @@ app.use(express.json());
 //     });
 // });
 
-app.use(campgrounds);
+app.use('/api/forests', forests);
+app.use('/api/campgrounds', campgrounds);
 // const app = require('./lib/app');
 
 const PORT = 3000;
