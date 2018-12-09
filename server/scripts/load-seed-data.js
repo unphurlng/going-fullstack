@@ -1,6 +1,6 @@
 const client = require('../db-client');
 const campgrounds = require('./campgrounds.json');
-const forests = require('./forests-data');
+// const forests = require('./forests-data');
 
 Promise.all(
   campgrounds.map(campground => {
