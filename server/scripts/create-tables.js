@@ -13,7 +13,7 @@ client.connect()
         forest VARCHAR(256),
         season VARCHAR(256),
         sites INTEGER,
-        rvsites BOOLEAN
+        rvwaste BOOLEAN
       );
     `);
   })

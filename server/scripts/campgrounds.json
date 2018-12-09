@@ -4,27 +4,27 @@
   "forest": "Willamette National Forest",
   "season": "Year round",
   "sites": "13",
-  "rvsites": true
+  "rvwaste": true
 },
 {
   "name": "Elk Creek Campground",
   "forest": "Wallowa-Whitman National Forest",
   "season": "CLOSED FOR REPAIR",
   "sites": "10",
-  "rvsites": true
+  "rvwaste": true
 },
 {
   "name": "House Rock Campground",
   "forest": "Willamette National Forest",
   "season": "May thru Sep",
   "sites": "17",
-  "rvsites": true
+  "rvwaste": true
 },
 {
   "name": "Trout Creek Campground",
   "forest": "Willamette National Forest",
   "season": "May thru Sep",
   "sites": "23",
-  "rvsites": true
+  "rvwaste": true
   }
 ]

@@ -50,7 +50,7 @@ export default {
         forest: '',
         season: '',
         sites: 0,
-        rvsites: false
+        rvwaste: false
       }
     };
   },
